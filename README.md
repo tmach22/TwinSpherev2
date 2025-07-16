@@ -113,10 +113,6 @@ Follow these steps:
     - name: Twitter username
     - personality_description: Rich persona inferred from the user's tweets.
 
-name: Twitter username
-
-personality_description: Rich persona inferred from the user's tweets.
-
 5. **Extract Personas**
 ```bash
 python scripts/extract_personas.py
