@@ -88,3 +88,60 @@ No need to A/B test in the wild—Twinsphere shortens the loop.
 ```bash
 git clone https://github.com/yourname/twinsphere-ai.git
 cd twinsphere-ai
+```
+
+2. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Set your API keys**
+- Create a .env file in the root directory:
+```bash
+LETTA_API_KEY=your_letta_api_key_here
+OPENROUTER_API_KEY=your_openrouter_key_here
+```
+
+4. **Prepare Tweet Data**
+Follow these steps:
+- Run the Group_Tweets.ipynb notebook:
+  - This script groups 100 random tweets for each user (by name) and concatenates them using a separator (<ENDOFTWEET>).
+  - The grouped results are saved as group_concatenated_tweets.csv.
+- Run the ExtractPersonaFromTweets.ipynb notebook:
+  - This script loads the grouped tweets and queries an LLM (e.g. DeepSeek via OpenRouter) to extract a structured persona description.
+  - The final output is agent_personalities.csv with two columns:
+    - name: Twitter username
+    - personality_description: Rich persona inferred from the user's tweets.
+
+5. **Extract Personas**
+```bash
+python scripts/extract_personas.py
+```
+
+6. **Create Agents**
+```bash
+python scripts/create_agents.py
+```
+
+7. **Launch the App**
+- First, the backend
+```bash
+uvicorn backend.main:app --reload
+```
+- Then in another terminal, start the UI
+```bash
+streamlit run frontend\app.py
+```
+
+# 📊 Sample Outputs
+Each agent will output:
+- Reaction: like, repost, comment, ignore, alert_authority, volunteer
+- Reasoning
+- Confidence score
+- Final public-facing message
+- Tags
+- Persona attribution
+Analytics shown:
+- Reaction distribution
+- Confidence heatmap
+- Persona engagement map
