@@ -88,3 +88,11 @@ No need to A/B test in the wild—Twinsphere shortens the loop.
 ```bash
 git clone https://github.com/yourname/twinsphere-ai.git
 cd twinsphere-ai
+```
+
+2. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+3. 
