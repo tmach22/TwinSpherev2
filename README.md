@@ -2,6 +2,9 @@
 
 Twinsphere AI is an experimental tool designed to simulate how real-world social media personalities would react to campaigns, crisis posts, or promotional content. It builds digital twins of public figures by analyzing their tweet history, and allows these agents to "see" new posts and respond using their learned persona. 
 
+## Demo
+[![Watch the Demo]](https://youtu.be/pjAP1of0YYA)
+
 ## 🔍 What It Does
 
 - Extracts personality traits from real Twitter data (interests, tone, sentiment, engagement style).
